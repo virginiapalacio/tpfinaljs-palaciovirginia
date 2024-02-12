@@ -1,5 +1,6 @@
 const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
+import * as Popper from "@popperjs/core"
 
 const expresiones = {
 	nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
@@ -17,18 +18,18 @@ const validarFormulario = (e) => {
 	switch (e.target.name) {
 		case "nombre":
 			validarCampo(expresiones.nombre, e.target, 'nombre');
-		break;
+			break;
 		case "correo":
 			validarCampo(expresiones.correo, e.target, 'correo');
-		break;
+			break;
 		case "telefono":
 			validarCampo(expresiones.telefono, e.target, 'telefono');
-		break;
+			break;
 	}
 }
 
 const validarCampo = (expresion, input, campo) => {
-	if(expresion.test(input.value)){
+	if (expresion.test(input.value)) {
 		document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-incorrecto');
 		document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-correcto');
 		document.querySelector(`#grupo__${campo} i`).classList.add('fa-check-circle');
@@ -45,26 +46,25 @@ const validarCampo = (expresion, input, campo) => {
 	}
 }
 inputs.forEach((input) => {
-	input.addEventListener('keyup', validarFormulario);
-	input.addEventListener('blur', validarFormulario);
+input.addEventListener('keyup', validarFormulario);
+input.addEventListener('blur', validarFormulario);
 });
 
-formulario.addEventListener('submit', (e) => {
-	e.preventDefault();
+formulario.addEventListener('submit'), (e) => { }
+e.preventDefault();
 
-	const terminos = document.getElementById('terminos');
-	if(campos.nombre && campos.correo && campos.telefono ){
-		formulario.reset();
+const terminos = document.getElementById('terminos');
+if (campos.nombre && campos.correo && campos.telefono) {
+	formulario.reset();
 
-		document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
-		setTimeout(() => {
-			document.getElementById('formulario__mensaje-exito').classList.remove('formulario__mensaje-exito-activo');
-		}, 5000);
+	document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
+	setTimeout(() => {
+		document.getElementById('formulario__mensaje-exito').classList.remove('formulario__mensaje-exito-activo');
+	}, 5000);
 
-		document.querySelectorAll('.formulario__grupo-correcto').forEach((icono) => {
-			icono.classList.remove('formulario__grupo-correcto');
-		});
-	} else {
-		document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
-	}
-});
+	document.querySelectorAll('.formulario__grupo-correcto').forEach((icono) => {
+		icono.classList.remove('formulario__grupo-correcto');
+	});
+} else {
+	document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
+}
