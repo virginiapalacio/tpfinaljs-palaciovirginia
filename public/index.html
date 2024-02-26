@@ -55,10 +55,15 @@
                 <label for="exampleFormControlSelect1" class="formulario__label">Elegí el servicio a realizarte</label>
                 <select class="formulario__input" id="exampleFormControlSelect1">
                     <option>Esmaltado semipermanente</option>
-                    <option>Capping polygel</option>
+                    <option>Service - esmaltado semipermanente</option>
+                    <option>Capping hibrido</option>
+                    <option>Service - Capping hibrido</option>
                     <option>Base correctiva</option>
+                    <option>Service- Base correctiva</option>
                     <option>Soft gel</option>
-                    <option>Remoción</option>
+                    <option>Service - Soft gel</option>
+                    <option>Remoción total semipermanente</option>
+                    <option>Remoción soft gel o Capping</option>
                 </select>
             </div>
             <!-- Grupo: Horarios-->
@@ -87,12 +92,17 @@
     <script src="main.js"></script>
     <script src="app.js"></script>
     <script type="module">
-    import { Toast } from 'bootstrap.esm.min.js'
-    
-    Array.from(document.querySelectorAll('.toast'))
-        .forEach(toastNode => new Toast(toastNode))
+        import { Toast } from 'bootstrap.esm.min.js'
+
+        Array.from(document.querySelectorAll('.toast'))
+            .forEach(toastNode => new Toast(toastNode))
     </script>
     <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.socket.io/4.3.2/socket.io.min.js"></script>
+    <script src="cliente.js"></script>
+    <script>
+        const socket = io();
+    </script>
 </body>
 
 </html>
